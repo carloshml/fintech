@@ -19,26 +19,35 @@ public class Wallet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name= "full_name")
+	@Column(name = "full_name")
 	private String fullName;
 
-	@Column(name= "cpf_cnpj", unique = true)
+	@Column(name = "cpf_cnpj", unique = true)
 	private String cpfCnpj;
 
-	@Column(name= "email",unique = true) 
+	@Column(name = "email", unique = true)
 	private String email;
 
-	@Column(name= "password")
+	@Column(name = "password")
 	private String password;
 
-	@Column(name= "balance")
+	@Column(name = "balance")
 	private BigDecimal balance = BigDecimal.ZERO;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "wallet_type_id")
 	private WalletType walletType;
 
 	public Wallet() {
+	}
+
+	public Wallet(String fullName, String cpfCnpj, String email, String password, WalletType walletType) {
+		this.fullName = fullName;
+		this.cpfCnpj = cpfCnpj;
+		this.email = email;
+		this.password = password;
+		this.walletType = walletType;
+
 	}
 
 	public Long getId() {
@@ -96,9 +105,5 @@ public class Wallet {
 	public void setWalletType(WalletType walletType) {
 		this.walletType = walletType;
 	}
-	
-	
-	
-	
 
 }
