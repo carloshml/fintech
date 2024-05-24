@@ -13,19 +13,17 @@ import jakarta.validation.Valid;
 
 @RestController
 public class TransferController {
-	
-	private final TransferService  transferService;
-	
-	public TransferController( TransferService transferService) {
+
+	private final TransferService transferService;
+
+	public TransferController(TransferService transferService) {
 		this.transferService = transferService;
 	}
-	
+
 	@PostMapping("/transfer")
-	public ResponseEntity<Transfer> transfer(@RequestBody 
-			@Valid TransferDto dto ){
-		var resp =  transferService.transfer(dto);		
-		return ResponseEntity.ok(resp);		
+	public ResponseEntity<Transfer> transfer(@RequestBody @Valid TransferDto dto) {
+		var resp = transferService.transfer(dto);
+		return ResponseEntity.ok(resp);
 	}
-	
 
 }

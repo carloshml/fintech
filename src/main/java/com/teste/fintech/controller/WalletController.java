@@ -13,17 +13,17 @@ import jakarta.validation.Valid;
 
 @RestController
 public class WalletController {
-	
-	private final WalletService  walletService;
-	
-	public WalletController( WalletService walletService) {
+
+	private final WalletService walletService;
+
+	public WalletController(WalletService walletService) {
 		this.walletService = walletService;
 	}
-	
+
 	@PostMapping("/wallets")
-	public ResponseEntity<Wallet> creatWallet(@RequestBody @Valid CreateWalletDto dto ){
-		var wallet =  walletService.createWallet(dto);		
-		return ResponseEntity.ok(wallet);		
+	public ResponseEntity<Wallet> creatWallet(@RequestBody @Valid CreateWalletDto dto) {
+		var wallet = walletService.createWallet(dto);
+		return ResponseEntity.ok(wallet);
 	}
 
 }

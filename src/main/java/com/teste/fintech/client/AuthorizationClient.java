@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.teste.fintech.client.dto.AuthorizationResponse;
 
-@FeignClient(url = "${client.authorization-service.url}")
+@FeignClient(name = "AuthorizationClient", url = "${client.authorization-service.url}")
 public interface AuthorizationClient {
 
 	@GetMapping
