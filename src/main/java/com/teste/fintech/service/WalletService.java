@@ -1,5 +1,7 @@
 package com.teste.fintech.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.teste.fintech.Exception.WalletDataAlreadyExistisException;
@@ -23,6 +25,10 @@ public class WalletService {
 			throw new WalletDataAlreadyExistisException("CPF CNPJ or E-mail Exists");
 		}
 		return walletRepository.save(dto.toWallet());
+	}
+
+	public List<Wallet> findAll() {
+		return walletRepository.findAll();
 	}
 
 }

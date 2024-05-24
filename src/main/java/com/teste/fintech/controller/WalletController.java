@@ -1,6 +1,9 @@
 package com.teste.fintech.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +27,12 @@ public class WalletController {
 	public ResponseEntity<Wallet> creatWallet(@RequestBody @Valid CreateWalletDto dto) {
 		var wallet = walletService.createWallet(dto);
 		return ResponseEntity.ok(wallet);
+	}
+	
+	@GetMapping("/wallets")
+	public ResponseEntity<List<Wallet>> Get() {
+		var resp = walletService.findAll();
+		return ResponseEntity.ok(resp); 	 
 	}
 
 }

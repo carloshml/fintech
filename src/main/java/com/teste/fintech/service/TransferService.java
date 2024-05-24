@@ -1,5 +1,6 @@
 package com.teste.fintech.service;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import com.teste.fintech.repository.TransferRepository;
 import com.teste.fintech.repository.WalletRepository;
 
 import jakarta.transaction.Transactional;
+
 
 @Service
 public class TransferService {
@@ -69,6 +71,10 @@ public class TransferService {
 			throw new TrasnferNotAuthorizedException();
 		}
 
+	}
+
+	public  List<Transfer> findAll() { 
+		return transferRepository.findAll();
 	}
 
 }
