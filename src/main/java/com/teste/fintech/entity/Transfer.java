@@ -1,6 +1,7 @@
 package com.teste.fintech.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
@@ -33,6 +34,9 @@ public class Transfer {
 	@Column(name = "value")
 	private BigDecimal value;
 	
+	@Column(name = "transfer_time")
+	private LocalDateTime transferTime;
+	
 	public Transfer() { 
 	} 
 	
@@ -40,6 +44,7 @@ public class Transfer {
 		this.sender = sender;
 		this.receiver = receiver;
 		this.value = value;
+		this.transferTime = LocalDateTime.now();
 	} 
 
 	public UUID getId() {
@@ -73,7 +78,14 @@ public class Transfer {
 	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
-	
+
+	public LocalDateTime getTransferTime() {
+		return transferTime;
+	}
+
+	public void setTransferTime(LocalDateTime transferTime) {
+		this.transferTime = transferTime;
+	}
 	
 
 }
