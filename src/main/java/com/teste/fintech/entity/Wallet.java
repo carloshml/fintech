@@ -10,6 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tb_wallet")
@@ -104,6 +106,22 @@ public class Wallet {
 
 	public void setWalletType(WalletType walletType) {
 		this.walletType = walletType;
+	}
+
+	public boolean isTransferAllawedForWalletType() {
+		return this.walletType.equals(WalletType.Enum.USER.get());
+	}
+
+	public boolean isBalanceGreaterOrEqualThan(BigDecimal value) {
+		return this.balance.compareTo(value) >= 0;
+	}
+
+	public void debit(BigDecimal value) {
+		this.balance = this.balance.min(value);
+	}
+
+	public void credit( BigDecimal value) {
+		this.balance =  this.balance.add(value);		
 	}
 
 }
