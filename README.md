@@ -14,3 +14,5 @@ projeto em Java 17 Spring para simular back-end de uma fintech
 -Exceções  tratadas com ControllerAdvice e Problem Details (RFC 7807)
 
 -Logs com o SLF4J
+
+-TESTES UNITÁRIOS
