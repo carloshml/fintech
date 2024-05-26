@@ -1,4 +1,4 @@
-package com.fintech;
+package com.teste.fintech;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
