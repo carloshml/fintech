@@ -1,12 +1,10 @@
-package com.teste.fintech.controller.dto;
+package com.teste.fintech.Exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import com.teste.fintech.Exception.FintechException;
 
 @RestControllerAdvice
 public class RestExceptionHandler {
