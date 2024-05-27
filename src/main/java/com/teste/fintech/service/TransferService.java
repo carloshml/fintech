@@ -21,10 +21,10 @@ import jakarta.transaction.Transactional;
 @Service
 public class TransferService {
 
-	private final AuthorizationService authorizationService;
-	private final NotificationService notificationService;
-	private final TransferRepository transferRepository;
-	private final WalletRepository walletRepository;
+	public final AuthorizationService authorizationService;
+	public final NotificationService notificationService;
+	public final TransferRepository transferRepository;
+	public final WalletRepository walletRepository;
 
 	public TransferService(AuthorizationService authorizationService, NotificationService notificationService,
 			TransferRepository trasnferRepository, WalletRepository walletRepository) {
