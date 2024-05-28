@@ -1,4 +1,4 @@
-# fintech
+# Fintech
 projeto em Java 17 Spring para simular back-end de uma fintech
 
 -API com Spring Boot
@@ -16,3 +16,5 @@ projeto em Java 17 Spring para simular back-end de uma fintech
 -Logs com o SLF4J
 
 -TESTES UNITÁRIOS
+
+Utilize o comando `docker compose up`   dentro da pasta   `\back\hotelback\resources` para criar a base de dados com docker
