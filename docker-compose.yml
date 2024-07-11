@@ -1,0 +1,46 @@
+
+
+services:
+ mysqldb:
+    image: mysql
+    ports:
+     - "3306:3306"
+    expose:
+     - "3306"
+    environment:
+      - MYSQLDB_PORT=3306
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=123
+      - MYSQL_DATABASE=fintech
+      - MYSQL_ROOT_PASSWORD=123
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - springboot-mysql-network
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      retries: 10
+      interval: 3s
+      timeout: 30s
+      
+ app:
+    build:
+      context: .
+      dockerfile: Dockerfile    
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    ports:
+     - "9081:9081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/fintech
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123
+    networks:
+      - springboot-mysql-network 
+    
+volumes:
+ db_data:
+networks:
+  springboot-mysql-network:
+    name: springboot-mysql-network
